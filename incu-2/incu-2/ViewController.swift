@@ -16,19 +16,6 @@ struct Contant {
     var memocontant: String
 }
 
-
-class MemoTableViewCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("오류발생")
-    }
-}
-
-
-
 class ViewController: UITableViewController {
     
     var memo = [Memo]()
@@ -41,22 +28,14 @@ class ViewController: UITableViewController {
         
     }
     @objc func plusButtonDidtap(_ sender: UIBarButtonItem){
-        let secondView = MemoWriterView()
+        let secondView = WriterViewController()
         secondView.delegate = self
         secondView.delegate2 = self
         self.navigationController?.pushViewController(secondView, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.navigationItem.title = "메모목록"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonDidtap))
-        tableView.register(MemoTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        tableView.cellLayoutMarginsFollowReadableWidth = true
-        tableView.separatorInset = UIEdgeInsets.zero
-        tableView.layoutMargins = UIEdgeInsets.zero
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44.0
+        setUI()
         
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,6 +52,23 @@ class ViewController: UITableViewController {
         
         return cell
     }
+    private func setUI(){
+        setViewHierachy()
+        setTableView()
+    }
+        private func  setViewHierachy(){
+            self.view.backgroundColor = .white
+            self.navigationItem.title = "메모목록"
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonDidtap))
+        }
+        private func setTableView() {
+            tableView.register(MemoTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+            tableView.cellLayoutMarginsFollowReadableWidth = true
+            tableView.separatorInset = UIEdgeInsets.zero
+            tableView.layoutMargins = UIEdgeInsets.zero
+            tableView.rowHeight = UITableView.automaticDimension
+            tableView.estimatedRowHeight = 44.0
+        }
     
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {

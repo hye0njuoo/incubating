@@ -8,7 +8,7 @@ protocol AddmemoContantDelgate {
     func addContant(contant: Contant)
 }
 
-class MemoWriterView : UIViewController{
+class WriterViewController : UIViewController{
     
     var delegate: AddmemoTitleDelegate?
     var delegate2: AddmemoContantDelgate?
@@ -44,31 +44,8 @@ class MemoWriterView : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.navigationItem.title = "메모작성"
-        self.navigationItem.backButtonTitle = "메모목록"
-        self.view.addSubview(self.label)
-        view.addSubview(textview)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidtap))
-       // self.view.addSubview(self.label2)
+        setUI()
 
-        
-        
-        //layout
-        label.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().inset(26)
-            make.top.equalToSuperview().offset(123)
-            make.height.equalTo(35)
-        }
-        textview.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().inset(26)
-            make.top.equalTo(label.snp.bottom).offset(20)
-            make.height.equalTo(600)
-        }
-//        label2.snp.makeConstraints { (make) in
-//            make.leading.trailing.equalToSuperview().inset(26)
-//            make.top.equalTo(textview.snp.bottom).offset(10)
-//        }
         
     }
     @objc func doneButtonDidtap() {
@@ -91,6 +68,31 @@ class MemoWriterView : UIViewController{
         delegate2?.addContant(contant: contant)
         
     }
+    private func setUI(){
+        setViewHierachy()
+        setConstraints()
+    }
+    private func setViewHierachy() {
+        self.view.backgroundColor = .white
+        self.navigationItem.title = "메모작성"
+        self.navigationItem.backButtonTitle = "메모목록"
+        [textview,label].forEach {
+            view.addSubview($0)
+        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidtap))
+    }
+    private func setConstraints() {
+        label.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview().inset(26)
+            make.top.equalToSuperview().offset(123)
+            make.height.equalTo(35)
+        }
+        textview.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview().inset(26)
+            make.top.equalTo(label.snp.bottom).offset(20)
+            make.height.equalTo(600)
+        }
+    }
     //countLabel.text = "0/100"
 
 //    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -109,7 +111,7 @@ class MemoWriterView : UIViewController{
 
 
 //placeholder 만들기
-extension MemoWriterView: UITextViewDelegate{
+extension WriterViewController: UITextViewDelegate{
     
     
     func textViewDidChange(_ textView: UITextView) {
@@ -124,15 +126,3 @@ extension MemoWriterView: UITextViewDelegate{
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

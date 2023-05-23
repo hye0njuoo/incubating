@@ -14,8 +14,9 @@
 		E509C2152A1498FE000781BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E509C2142A1498FE000781BF /* Assets.xcassets */; };
 		E509C2182A1498FE000781BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E509C2162A1498FE000781BF /* LaunchScreen.storyboard */; };
 		E509C23D2A149933000781BF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E509C23C2A149933000781BF /* SnapKit */; };
-		E509C23F2A149C9D000781BF /* MemoWriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E509C23E2A149C9D000781BF /* MemoWriterView.swift */; };
-		E509C2C32A15C79A000781BF /* MemoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E509C2C22A15C79A000781BF /* MemoDetailView.swift */; };
+		E509C23F2A149C9D000781BF /* WriterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E509C23E2A149C9D000781BF /* WriterViewController.swift */; };
+		E509C2C32A15C79A000781BF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E509C2C22A15C79A000781BF /* DetailViewController.swift */; };
+		E5AF3AD92A19FAEA00EE32B5 /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF3AD82A19FAEA00EE32B5 /* MemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +47,9 @@
 		E509C2192A1498FE000781BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E509C21E2A1498FE000781BF /* incu-2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "incu-2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E509C2282A1498FE000781BF /* incu-2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "incu-2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E509C23E2A149C9D000781BF /* MemoWriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoWriterView.swift; sourceTree = "<group>"; };
-		E509C2C22A15C79A000781BF /* MemoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailView.swift; sourceTree = "<group>"; };
+		E509C23E2A149C9D000781BF /* WriterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterViewController.swift; sourceTree = "<group>"; };
+		E509C2C22A15C79A000781BF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E5AF3AD82A19FAEA00EE32B5 /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +102,9 @@
 				E509C20B2A1498FD000781BF /* AppDelegate.swift */,
 				E509C20D2A1498FD000781BF /* SceneDelegate.swift */,
 				E509C20F2A1498FD000781BF /* ViewController.swift */,
-				E509C23E2A149C9D000781BF /* MemoWriterView.swift */,
-				E509C2C22A15C79A000781BF /* MemoDetailView.swift */,
+				E509C23E2A149C9D000781BF /* WriterViewController.swift */,
+				E509C2C22A15C79A000781BF /* DetailViewController.swift */,
+				E5AF3AD82A19FAEA00EE32B5 /* MemoTableViewCell.swift */,
 				E509C2112A1498FD000781BF /* Main.storyboard */,
 				E509C2142A1498FE000781BF /* Assets.xcassets */,
 				E509C2162A1498FE000781BF /* LaunchScreen.storyboard */,
@@ -247,10 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AF3AD92A19FAEA00EE32B5 /* MemoTableViewCell.swift in Sources */,
 				E509C2102A1498FD000781BF /* ViewController.swift in Sources */,
-				E509C23F2A149C9D000781BF /* MemoWriterView.swift in Sources */,
+				E509C23F2A149C9D000781BF /* WriterViewController.swift in Sources */,
 				E509C20C2A1498FD000781BF /* AppDelegate.swift in Sources */,
-				E509C2C32A15C79A000781BF /* MemoDetailView.swift in Sources */,
+				E509C2C32A15C79A000781BF /* DetailViewController.swift in Sources */,
 				E509C20E2A1498FD000781BF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

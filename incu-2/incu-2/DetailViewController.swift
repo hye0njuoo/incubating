@@ -19,20 +19,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        self.navigationItem.title = "메모상세"
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(137)
-            make.leading.equalToSuperview().offset(36)
-        }
-        view.addSubview(contentLabel)
-        contentLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(36)
-            //make.trailing.equalToSuperview().inset(295)
-        }
-        
+        setUI()
         updateUI()
     }
     
@@ -43,5 +30,27 @@ class DetailViewController: UIViewController {
         
         titleLabel.text = memo.memotitle
         contentLabel.text = contant.memocontant
+    }
+    private func setUI(){
+        setViewHierachy()
+        setConstraints()
+    }
+    private func setViewHierachy(){
+        self.navigationItem.title = "메모상세"
+        view.backgroundColor = .white
+        [titleLabel,contentLabel].forEach {
+            view.addSubview($0)
+        }
+    }
+    private func setConstraints() {
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(137)
+            make.leading.equalToSuperview().offset(36)
+        }
+        contentLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(36)
+            
+        }
     }
 }
